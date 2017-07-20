@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>滑块</title>
+	<link rel="stylesheet" type="text/css" href="../../resources/themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../../resources/themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../../resources/themes/color.css">
+	<link rel="stylesheet" type="text/css" href="../../resources/css/reset.css">
+	<script type="text/javascript" src="../../resources/jquery.min.js"></script>
+	<script type="text/javascript" src="../../resources/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="../../resources/easyui-lang-zh_CN.js"></script>
+</head>
+<body>
+    <h2>滑块</h2> 
+    <p>基础滑块</p>
+   <input class="easyui-slider" id="slb" style="width:300px" data-options="showTip:true">
+   <div id="result"></div>
+   <script type="text/javascript">
+   	$("#slb").slider({
+   		onComplete:function(value){
+   			$("#result").html(value);
+
+   		}
+   	});
+   </script>
+
+   <br/><br/>
+   <p>提示信息格式</p>
+   <input class="easyui-slider" id="slb2" value="12" style="width:300px" >
+	<div id="ff" style="margin-top:50px;font-size:12px">jQuery EasyUI</div>
+	 <script type="text/javascript">
+   	$("#slb2").slider({
+   		showTip: true,
+			rule: [0,'|',25,'|',50,'|',75,'|',100],
+			tipFormatter: function(value){
+				return value+'px';
+			},
+			onChange: function(value){
+				$('#ff').css('font-size', value);
+			}
+   	});
+   </script>
+
+
+
+	
+
+</body>
+</html>

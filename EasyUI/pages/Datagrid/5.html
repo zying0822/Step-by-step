@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>数据表格工具栏</title>
+	<link rel="stylesheet" type="text/css" href="../../resources/themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../../resources/themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../../resources/themes/color.css">
+	<link rel="stylesheet" type="text/css" href="../../resources/css/reset.css">
+	<script type="text/javascript" src="../../resources/jquery.min.js"></script>
+	<script type="text/javascript" src="../../resources/jquery.easyui.min.js"></script>
+</head>
+<body>
+	<h2>数据表格工具栏</h2>
+		
+	<table id="dg1" class="easyui-datagrid" title="Basic DataGrid" style="width:700px;height:250px"
+			>
+		<thead>
+			<tr>
+			    <th data-options="field:'ck',checkbox:true"></th>
+				<th data-options="field:'UserName',width:80">用户名</th>
+				<th data-options="field:'RealName',width:80">真实名称</th>
+				<th data-options="field:'Major',width:80,align:'right'">专业</th>
+				<th data-options="field:'Grade',width:80,align:'right'">年级</th>
+				<th data-options="field:'ClassNo',width:80,align:'right'">班级</th>				
+			</tr>
+		</thead>
+	</table>
+	<div id="tb" style="padding:5px;height:auto">		
+			
+			<a href="#" class="easyui-linkbutton" iconCls="icon-save" plain="true"></a>
+			<a href="#" class="easyui-linkbutton" iconCls="icon-cut" plain="true"></a>
+			<a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true"></a>
+		
+	</div>
+	<script type="text/javascript">
+		$("#dg1").datagrid({
+			toolbar:'#tb',
+			rownumbers:true,
+			singleSelect:true,
+			collapsible:true,
+			fitColumns: true,
+			url:'test.json',
+			method:'get',
+			pagination:'true'
+		});
+	</script>
+
+	
+	
+
+		
+
+
+</body>
+</html>

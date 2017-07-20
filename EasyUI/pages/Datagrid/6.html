@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>数据表格行编辑</title>
+	<link rel="stylesheet" type="text/css" href="../../resources/themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../../resources/themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../../resources/themes/color.css">
+	<link rel="stylesheet" type="text/css" href="../../resources/css/reset.css">
+	<script type="text/javascript" src="../../resources/jquery.min.js"></script>
+	<script type="text/javascript" src="../../resources/jquery.easyui.min.js"></script>
+</head>
+<body>
+	<h2>数据表格行编辑</h2>
+		
+	<table id="dg" class="easyui-datagrid" title="Row Editing in DataGrid" style="width:700px;height:auto">
+		
+	</table>
+ 
+	<div id="tb" style="height:auto">
+		<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true" onclick="append()">Append</a>
+		<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-remove',plain:true" onclick="removeit()">Remove</a>
+		<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-save',plain:true" onclick="accept()">Accept</a>
+		<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-undo',plain:true" onclick="reject()">Reject</a>
+		<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-search',plain:true" onclick="getChanges()">GetChanges</a>
+	</div>
+	
+	<script type="text/javascript">
+	$("#dg").datagrid({
+		iconCls: 'icon-edit',
+		singleSelect: true,
+		toolbar: '#tb',
+		url: 'test_grid.json',
+		method: 'get',
+		onClickRow: onClickRow,
+		fitColumns: true,
+		columns: [
+            [{
+                field: "datatime",
+                title: "日期",
+                align: 'center',                
+                width: 80,
+                editor:{
+                	type:'datebox'
+
+                }
+            }, {
+                field: "coalMineName",
+                title: "煤矿",
+                align: 'center',               
+                width: 80,
+                formatter:function(value,row){
+					return row.coalMineName;
+				},
+				editor:{
+					type:'combobox',
+					options:{
+						valueField:'collieryName',
+						textField:'collieryName',
+						method:'get',
+						url:'cmcombox.json',
+						required:true
+					}
+				}
+            }, {
+                field: "coalFieldName",
+                title: "煤场",
+                align: 'center',               
+                width: 80,
+                editor:{
+                	type:'textbox'
+                }
+            }, {
+                field: "coalTypeName",
+                title: "煤种",
+                halign: 'center',
+                align: 'right',
+                width: 80,
+                editor:{
+                	type:'textbox'
+                }
+            }, {
+                field: "amount",
+                title: "煤量",
+                halign: 'center',
+                align: 'right',
+                width: 80,
+                editor:{
+                	type:'numberbox'
+                }
+            }]
+        ]
+	});
+		var editIndex = undefined;
+		function endEditing(){
+			if (editIndex == undefined){return true}
+			if ($('#dg').datagrid('validateRow', editIndex)){
+				var ed = $('#dg').datagrid('getEditor', {index:editIndex,field:'coalMineName'});
+				var collieryName = $(ed.target).combobox('getText');
+				$('#dg').datagrid('getRows')[editIndex]['coalMianeName'] = collieryName;
+				$('#dg').datagrid('endEdit', editIndex);
+				editIndex = undefined;
+				return true;
+			} else {
+				return false;
+			}
+		}
+		function onClickRow(index){
+			if (editIndex != index){
+				if (endEditing()){
+					$('#dg').datagrid('selectRow', index)
+							.datagrid('beginEdit', index);
+					editIndex = index;
+				} else {
+					$('#dg').datagrid('selectRow', editIndex);
+				}
+			}
+		}
+		function append(){
+			if (endEditing()){
+				$('#dg').datagrid('appendRow',{status:'P'});
+				editIndex = $('#dg').datagrid('getRows').length-1;
+				$('#dg').datagrid('selectRow', editIndex)
+						.datagrid('beginEdit', editIndex);
+			}
+		}
+		function removeit(){
+			if (editIndex == undefined){return}
+			$('#dg').datagrid('cancelEdit', editIndex)
+					.datagrid('deleteRow', editIndex);
+			editIndex = undefined;
+		}
+		function accept(){
+			if (endEditing()){
+				$('#dg').datagrid('acceptChanges');
+			}
+		}
+		function reject(){
+			$('#dg').datagrid('rejectChanges');
+			editIndex = undefined;
+		}
+		function getChanges(){
+			var rows = $('#dg').datagrid('getChanges');
+			alert(rows.length+' rows are changed!');
+		}
+
+		function myformatter(date){
+			var y = date.getFullYear();
+			var m = date.getMonth()+1;
+			var d = date.getDate();
+			return y+'-'+(m<10?('0'+m):m)+'-'+(d<10?('0'+d):d);
+		}
+		function myparser(s){
+			if (!s) return new Date();
+			var ss = (s.split('-'));
+			var y = parseInt(ss[0],10);
+			var m = parseInt(ss[1],10);
+			var d = parseInt(ss[2],10);
+			if (!isNaN(y) && !isNaN(m) && !isNaN(d)){
+				return new Date(y,m-1,d);
+			} else {
+				return new Date();
+			}
+		}
+	</script>
+
+	
+	
+
+		
+
+
+</body>
+</html>

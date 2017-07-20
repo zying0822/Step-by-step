@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>日期框</title>
+	<link rel="stylesheet" type="text/css" href="../../resources/themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../../resources/themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../../resources/themes/color.css">
+	<link rel="stylesheet" type="text/css" href="../../resources/css/reset.css">
+	<script type="text/javascript" src="../../resources/jquery.min.js"></script>
+	<script type="text/javascript" src="../../resources/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="../../resources/easyui-lang-zh_CN.js"></script>
+</head>
+<body>
+    <h2>日期框</h2> 
+    <p>基本日期框</p>
+	<input class="easyui-datebox">
+	<br/><br/><br/>
+	
+	<p>日期框事件</p>
+	<input class="easyui-datebox" id="datebox1" data-options="onSelect:onSelect">
+	<div style="margin:10px 0">
+		<span>选中日期: </span>
+		<span id="result"></span>
+	</div>
+	<div style="margin:10px 0">
+		<span>选中日期: </span>
+		<span id="result2"></span>
+	</div>
+	<script>
+		function onSelect(date){
+			$('#result').text(date);
+
+			var d=$("#datebox1").datebox("getValue");
+
+			$('#result2').text(d);
+		}
+	</script>
+	<br/><br/><br/>
+	<p>日期框时间范围</p>
+	<input id="dd">
+	<script>
+		$(function(){
+			$('#dd').datebox().datebox('calendar').calendar({
+				validator: function(date){
+					var now = new Date();
+					var d1 = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+					var d2 = new Date(now.getFullYear(), now.getMonth(), now.getDate()+10);
+					return d1<=date && date<=d2;
+				}
+			});
+		});
+	</script>
+	<br/><br/><br/>
+</body>
+</html>

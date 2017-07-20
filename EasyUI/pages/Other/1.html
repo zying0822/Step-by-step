@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>进度条</title>
+	<link rel="stylesheet" type="text/css" href="../../resources/themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../../resources/themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../../resources/themes/color.css">
+	<link rel="stylesheet" type="text/css" href="../../resources/css/reset.css">
+	<script type="text/javascript" src="../../resources/jquery.min.js"></script>
+	<script type="text/javascript" src="../../resources/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="../../resources/easyui-lang-zh_CN.js"></script>
+</head>
+<body>
+    <h2>进度条</h2> 
+   
+    <div style="margin:20px 0;">
+		<a href="#" class="easyui-linkbutton" onclick="start()">Start</a>
+	</div>
+	<div id="p" class="easyui-progressbar" style="width:400px;"></div>
+	<script>
+		function start(){
+			var value = $('#p').progressbar('getValue');
+			if (value < 100){
+				value += Math.floor(Math.random() * 10);
+				$('#p').progressbar('setValue', value);
+				setTimeout(arguments.callee, 200);
+			}
+		};
+	</script>
+
+	<br/><br/>
+
+	<div id="p1" class="easyui-progressbar"  value="30" style="width:400px;"></div>
+	
+
+
+
+	
+
+</body>
+</html>

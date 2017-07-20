@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>基础树</title>
+	<link rel="stylesheet" type="text/css" href="../../resources/themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../../resources/themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../../resources/themes/color.css">
+	<link rel="stylesheet" type="text/css" href="../../resources/css/reset.css">
+	<script type="text/javascript" src="../../resources/jquery.min.js"></script>
+	<script type="text/javascript" src="../../resources/jquery.easyui.min.js"></script>
+</head>
+<body>
+	<h2>基础树</h2>
+	<p>数据在html里给定</p>
+	<div class="easyui-panel" style="padding:5px">
+		
+		<ul class="easyui-tree">
+			<li>
+				<span>节点1</span>
+				<ul>
+					<li>
+						<span>节点11</span>
+						<ul>
+							<li>
+								<span>节点111</span>
+							</li>
+							<li>
+								<span>节点112</span>
+							</li>
+							
+						</ul>
+					</li>					
+				</ul>
+			</li>
+			<li data-options="state:'closed'">
+				<span>节点2</span>
+				<ul>
+					<li>
+						节点21
+						
+					</li>		
+					<li>
+						节点22
+						
+					</li>			
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<br/>
+	<p>数据通过ajax获取</p>
+	<div class="easyui-panel" style="padding:5px">
+
+		<ul id="tt1" class="easyui-tree"></ul>
+			
+	</div>
+	<script type="text/javascript">
+		$('#tt1').tree({    
+    		url:'tree_data1.json'   
+		}); 
+	</script>
+
+	<br/>
+	<p>数据格式标准化</p>
+	<div class="easyui-panel" style="padding:5px">
+		<ul id="tt2" class="easyui-tree"></ul>
+			
+	</div>
+    <script type="text/javascript">
+		$('#tt2').tree({    
+    		url: 'tree_data2.json' ,    
+    		loadFilter: function(data){    
+       			if (data.tree){    
+            	return data.tree;    
+        		} else {    
+            		return data;    
+        		}    
+    		}    
+		});  
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Bootstrap</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href="css/icons.css" rel="stylesheet" />
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <link href="css/main.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div id="sidebar">
+        <div class="sidebar-inner">
+            <ul id="sideNav" class="nav nav-pills nav-stacked">
+                <li><a href="index.html">首页 <i class="im-home"></i></a>
+                </li>
+                <li class="link_button"><a href="Typesetting.html"> 排版 <i class="im-paragraph-left"></i></a>
+                </li>
+                <li class="link_button"><a href="Code.html"> 代码 <i class="im-file-xml"></i></a></li>
+                <li class="link_button"><a href="Table.html">表格 <i class="im-table2"></i></a>
+                </li>
+                <li class="link_button"><a href="Form.html"> 表单 <i class="im-insert-template"></i></a>
+                </li>
+                <li class="link_button"><a href="Input.html"> 输入框组 <i class="im-keyboard"></i></a>
+                </li>
+                <li class="link_button"><a href="Button.html"> 按钮 <i class="im-quill"></i></a>
+                </li>
+                <li class="link_button"><a href="Image.html"> 图片 <i class="im-images"></i></a>
+                </li>
+                <li class="link_button"><a href="Helper.html"> 辅助类 <i class="glyphicon glyphicon-question-sign"></i></a>
+                </li>
+                <li class="link_button"><a href="Icons.html"> 图标 <i class="glyphicon glyphicon-leaf"></i></a>
+                </li>
+                <li class="link_button"><a href="Dropdown.html"> 下拉菜单 <i class="st-lab"></i></a>
+                </li>
+                <li class="link_button"><a href="Nav.html"> 导航<i class="glyphicon glyphicon-tasks"></i></a>
+                </li>
+                <li class="link_button"><a href="Navbar.html">导航条 <i class="en-directions"></i></a>
+                </li>
+                <li class="link_button"><a href="BreadCrumb.html">路径导航 <i class="im-earth"></i></a>
+                </li>
+                <li class="link_button"><a href="Pager.html">分页 <i class="im-rocket"></i></a>
+                </li>
+                <li class="link_button"><a href="Label.html">标签 <i class="fa-star-empty"></i></a>
+                </li>
+                <li class="link_button"><a href="Badges.html"> 徽章 <i class="br-star2"></i></a>
+                </li>
+                <li class="link_button"><a href="PageHead.html"> 巨幕/页头/缩略图 <i class="im-gift"></i></a>
+                </li>
+                <li class="link_button"><a href="Alert.html"> 警告框/弹出框 <i class="st-stack"></i></a>
+                </li>
+                <li class="link_button"><a href="Progress.html">进度条 <i class="en-progress-2"></i></a>
+                </li>
+                <li class="link_button"><a href="Media.html"> 媒体对象 <i class="fa-film"></i></a>
+                </li>
+                <li class="link_button"><a href="List.html"> 列表组 <i class="br-list"></i></a>
+                </li>
+                <li class="link_button"><a href="Panel.html">面板 <i class="en-browser"></i></a>
+                </li>
+                <li class="link_button"><a href="Modal.html">模态框 <i class="en-popup"></i></a>
+                </li>
+                <li class="link_button"><a href="Tabs.html">标签页/工具提示 <i class="st-comment"></i></a>
+                </li>
+                <li class="link_button"><a href="Scrollspy.html">滚动监听 <i class="br-mouse"></i></a>
+                </li>
+                <li class="link_button"><a href="Collapse.html">Collapse <i class="fa-chevron-up"></i></a>
+                </li>
+                <li class="link_button"><a href="Carousel.html">图片滚动 <i class="en-pictures"></i></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="content">
+        <div class="content-wrapper">
+            <div class="content">
+                <div class="heading">
+                    <h1 class="page-header"><i class="im-screen"></i> 欢迎学习Bootstrap</h1>
+                </div>
+            </div>
+            <pre id="code"></pre>
+        </div>
+    </div>
+    <script src="js/jquery-1.10.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $("#code").hide();
+        $(".link_button").click(function(e) {
+            var _this = $(this);
+            e.preventDefault();
+            var subHref = _this.find("a").attr('href');
+            $.get("pages/"+subHref, function(a) {
+                $(".content").html(a);
+                $("#code").text(a);
+                $("#code").show();
+                if (subHref == "Modal.html") {
+
+                    $("#modal-1").modal("show");
+                    $('#exampleModal').on('show.bs.modal', function(event) {
+                        var button = $(event.relatedTarget) // Button that triggered the modal
+                        var recipient = button.data('whatever') // Extract info from data-* attributes
+                        // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+                        // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+                        var modal = $(this)
+                        modal.find('.modal-title').text('New message to ' + recipient)
+                        modal.find('.modal-body input').val(recipient)
+                    })
+                } else if (subHref == "Tabs.html") {
+                    $('#myTabs a').click(function(e) {
+                        e.preventDefault();
+                        $(this).tab('show');
+                    })
+                    $('[data-toggle="tooltip"]').tooltip();
+
+
+                } else if (subHref == "Alert.html") {
+                    $('[data-toggle="popover"]').popover();
+                } else if (subHref == "Scrollspy.html") {
+                    $('.scrollspy-example').scrollspy({ target: '#navbar-example2' })
+                }
+
+            })
+        });
+    });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>时间调整器</title>
+	<link rel="stylesheet" type="text/css" href="../../resources/themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../../resources/themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../../resources/themes/color.css">
+	<link rel="stylesheet" type="text/css" href="../../resources/css/reset.css">
+	<script type="text/javascript" src="../../resources/jquery.min.js"></script>
+	<script type="text/javascript" src="../../resources/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="../../resources/easyui-lang-zh_CN.js"></script>
+</head>
+<body>
+    <h2>时间调整器</h2> 
+    <p>基本时间调整器</p>
+    <a href="#" class="easyui-linkbutton" onclick="getDatetime()">获取时间</a>
+    <br/> <br/>
+	<input class="easyui-timespinner" id="timespinner" style="width:80px;">
+	<div style="margin:10px 0">
+		<span>时间: </span>
+		<span id="result"></span>
+	</div>
+	<script>
+		function getDatetime(){
+			var dt=$("#timespinner").timespinner("getValue");
+			$("#result").html(dt);
+		}
+	</script>
+	<br/><br/>
+	<p>禁用时间调整器</p>      
+	<input class="easyui-timespinner" disabled="true" style="width:80px;">
+	<br/><br/>
+	<a href="#" class="easyui-linkbutton" onclick="dis()">禁用</a>
+	<input class="easyui-timespinner" id="timespinner1"  style="width:80px;">
+	<script type="text/javascript">
+	function dis(){
+
+		$('#timespinner1').timespinner('disable');
+	}
+	</script>
+
+	<br/><br/>
+	<p>时间范围</p>    
+	从 8:30 到 18:00  
+	<input class="easyui-timespinner" data-options="min:'08:30',max:'18:00'" style="width:80px;">
+	
+	
+
+</body>
+</html>

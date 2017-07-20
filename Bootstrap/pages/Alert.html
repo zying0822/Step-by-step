@@ -1,0 +1,49 @@
+<div class="heading">
+    <h1 class="page-header"><i class="im-screen"></i> 警告框/弹出框</h1>
+</div>
+<h2>警告框</h2>
+<h3>普通警告框</h3>
+<div class="alert alert-danger" role="alert">
+    危险
+</div>
+<div class="alert alert-success" role="alert">
+    成功
+</div>
+<div class="alert alert-info" role="alert">
+    信息
+</div>
+<div class="alert alert-warning" role="alert">
+    警告
+</div>
+
+<h3>可关闭的警告框</h3>
+<div class="alert alert-warning alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <strong>Warning!</strong> Better check yourself, you're not looking too good.
+</div>
+
+<h3>警告框中的链接</h3>
+<div class="alert alert-success" role="alert">
+  恭喜你！<a href="#" class="alert-link">baidu.com</a>
+</div>
+<hr>
+<h2>弹出框</h2>
+<button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="left" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+  Popover on 左侧
+</button>
+
+<button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+  Popover on 顶部
+</button>
+
+<button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus
+sagittis lacus vel augue laoreet rutrum faucibus.">
+  Popover on 底部
+</button>
+
+<button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+  Popover on 右侧
+</button>
+<br><br>
+<a tabindex="0" class="btn btn-danger" role="button" data-toggle="popover" data-trigger="focus" title="Dismissible popover" data-content="And here's some amazing content. It's very engaging. Right?">点击可消失的弹出框</a>
+<hr>

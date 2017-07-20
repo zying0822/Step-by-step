@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>复选框树</title>
+	<link rel="stylesheet" type="text/css" href="../../resources/themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../../resources/themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../../resources/themes/color.css">
+	<link rel="stylesheet" type="text/css" href="../../resources/css/reset.css">
+	<script type="text/javascript" src="../../resources/jquery.min.js"></script>
+	<script type="text/javascript" src="../../resources/jquery.easyui.min.js"></script>
+</head>
+<body>
+	<h2>复选框树</h2>
+	<a href="#" class="easyui-linkbutton" onclick="getSelected()">获取选中节点</a>
+	<div class="easyui-panel" style="padding:5px">
+	级联选中，所有节点可选
+		<ul id="tt1" class="easyui-tree"></ul>			
+	</div>
+	<br/>
+	<div class="easyui-panel" style="padding:5px">
+	非级联选中，所有节点可选
+		<ul id="tt2" class="easyui-tree"></ul>			
+	</div>
+    <br/>
+	<div class="easyui-panel" style="padding:5px">
+	只有叶节点可选
+		<ul id="tt3" class="easyui-tree"></ul>			
+	</div>
+	<script type="text/javascript">
+		$('#tt1').tree({    
+    		url:'tree_data1.json'   ,
+    		animate:true,
+    		lines:true,
+    		checkbox:true    		
+		}); 
+		$('#tt2').tree({    
+    		url:'tree_data1.json'   ,
+    		animate:true,
+    		lines:true,
+    		checkbox:true ,
+    		cascadeCheck:false   		
+		}); 
+		$('#tt3').tree({    
+    		url:'tree_data1.json'   ,
+    		animate:true,
+    		lines:true,
+    		checkbox:true ,
+    		onlyLeafCheck:true   		
+		}); 
+		function getSelected(){
+			var nodes = $('#tt1').tree('getChecked');
+			var s = '';
+			for(var i=0; i<nodes.length; i++){
+				if (s != '') s += ',';
+				s += nodes[i].text;
+			}
+			alert(s);
+		}
+
+		
+	</script>
+
+	
+	
+</body>
+</html>

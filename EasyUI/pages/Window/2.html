@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>消息</title>
+	<link rel="stylesheet" type="text/css" href="../../resources/themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../../resources/themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../../resources/themes/color.css">
+	<link rel="stylesheet" type="text/css" href="../../resources/css/reset.css">
+	<script type="text/javascript" src="../../resources/jquery.min.js"></script>
+	<script type="text/javascript" src="../../resources/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="../../resources/easyui-lang-zh_CN.js"></script>
+</head>
+<body>
+    <h2>消息</h2> 
+    <p>基础消息</p>
+    <div style="margin:20px 0;">
+		<a href="#" class="easyui-linkbutton" onclick="show()">Show</a>
+		<a href="#" class="easyui-linkbutton" onclick="slide()">Slide</a>
+		<a href="#" class="easyui-linkbutton" onclick="fade()">Fade</a>
+		<a href="#" class="easyui-linkbutton" onclick="progress()">Progress</a>
+	</div>
+	<script type="text/javascript">
+		function show(){
+			$.messager.show({
+				title:'My Title',
+				msg:'Message will be closed after 4 seconds.',
+				showType:'show'
+			});
+		}
+		function slide(){
+			$.messager.show({
+				title:'My Title',
+				msg:'Message will be closed after 5 seconds.',
+				timeout:5000,
+				showType:'slide'
+			});
+		}
+		function fade(){
+			$.messager.show({
+				title:'My Title',
+				msg:'Message never be closed.',
+				timeout:0,
+				showType:'fade'
+			});
+		}
+		function progress(){
+			var win = $.messager.progress({
+				title:'Please waiting',
+				msg:'Loading data...'
+			});
+			setTimeout(function(){
+				$.messager.progress('close');
+			},5000)
+		}
+	</script>
+
+    <br/><br/>
+	<p>提示消息</p>
+    <div style="margin:20px 0;">
+		<a href="#" class="easyui-linkbutton" onclick="alert1()">Alert</a>
+		<a href="#" class="easyui-linkbutton" onclick="alert2()">Error</a>
+		<a href="#" class="easyui-linkbutton" onclick="alert3()">Info</a>
+		<a href="#" class="easyui-linkbutton" onclick="alert4()">Question</a>
+		<a href="#" class="easyui-linkbutton" onclick="alert5()">Warning</a>
+	</div>
+	<script>
+		function alert1(){
+			$.messager.alert('My Title','Here is a message!');
+		}
+		function alert2(){
+			$.messager.alert('My Title','Here is a error message!','error');
+		}
+		function alert3(){
+			$.messager.alert('My Title','Here is a info message!','info');
+		}
+		function alert4(){
+			$.messager.alert('My Title','Here is a question message!','question');
+		}
+		function alert5(){
+			$.messager.alert('My Title','Here is a warning message!','warning');
+		}
+	</script>
+
+	<br/><br/>
+	<p>交互消息</p>
+    <div style="margin:20px 0;">
+		<a href="#" class="easyui-linkbutton" onclick="confirm1();">Confirm</a>
+		<a href="#" class="easyui-linkbutton" onclick="prompt1()">Prompt</a>
+	</div>
+	<script>
+		function confirm1(){
+			$.messager.confirm('My Title', 'Are you confirm this?', function(r){
+				if (r){
+					alert('confirmed: '+r);
+				}
+			});
+		}
+		function prompt1(){
+			$.messager.prompt('My Title', 'Please type something', function(r){
+				if (r){
+					alert('you type: '+r);
+				}
+			});
+		}
+	</script>
+
+	
+
+</body>
+</html>

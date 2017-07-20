@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>数据表格行选择</title>
+	<link rel="stylesheet" type="text/css" href="../../resources/themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../../resources/themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../../resources/themes/color.css">
+	<link rel="stylesheet" type="text/css" href="../../resources/css/reset.css">
+	<script type="text/javascript" src="../../resources/jquery.min.js"></script>
+	<script type="text/javascript" src="../../resources/jquery.easyui.min.js"></script>
+</head>
+<body>
+	<h2>数据表格行选择</h2>
+	<a href="#" class="easyui-linkbutton" onclick="getSelected()">选择单行</a>		
+	<table id="dg1" class="easyui-datagrid" title="Basic DataGrid" style="width:700px;height:250px"
+			>
+		<thead>
+			<tr>
+				<th data-options="field:'UserName',width:80">用户名</th>
+				<th data-options="field:'RealName',width:80">真实名称</th>
+				<th data-options="field:'Major',width:80,align:'right'">专业</th>
+				<th data-options="field:'Grade',width:80,align:'right'">年级</th>
+				<th data-options="field:'ClassNo',width:80,align:'right'">班级</th>				
+			</tr>
+		</thead>
+	</table>
+	<script type="text/javascript">
+		$("#dg1").datagrid({
+			singleSelect:true,
+			collapsible:true,
+			fitColumns: true,
+			url:'test.json',
+			method:'get'
+		});
+	</script>
+	<br/>
+	<a href="#" class="easyui-linkbutton" onclick="getSelections()">选择多行</a>
+	<table id="dg2" class="easyui-datagrid" title="Basic DataGrid" style="width:700px;height:250px">
+	<thead>
+			<tr>
+				<th data-options="field:'UserName',width:80">用户名</th>
+				<th data-options="field:'RealName',width:80">真实名称</th>
+				<th data-options="field:'Major',width:80,align:'right'">专业</th>
+				<th data-options="field:'Grade',width:80,align:'right'">年级</th>
+				<th data-options="field:'ClassNo',width:80,align:'right'">班级</th>				
+			</tr>
+		</thead>		
+	</table>
+	<script type="text/javascript">
+
+	 $('#dg2').datagrid({
+        url: "test.json",
+        fitColumns: true,
+        collapsible:true,        
+        striped: true    
+        
+       
+    });
+
+	 function getSelected(){
+			var row = $('#dg1').datagrid('getSelected');
+			if (row){
+				$.messager.alert('Info', row.UserName+":"+row.Major+":"+row.Grade);
+			}
+		}
+		function getSelections(){
+			var ss = [];
+			var rows = $('#dg2').datagrid('getSelections');
+			for(var i=0; i<rows.length; i++){
+				var row = rows[i];
+				ss.push('<span>'+row.UserName+":"+row.Major+":"+row.Grade+'</span>');
+			}
+			$.messager.alert('Info', ss.join('<br/>'));
+		}
+	</script>
+
+		
+
+
+</body>
+</html>

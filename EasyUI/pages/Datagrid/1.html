@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>基础数据表格</title>
+	<link rel="stylesheet" type="text/css" href="../../resources/themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../../resources/themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../../resources/themes/color.css">
+	<link rel="stylesheet" type="text/css" href="../../resources/css/reset.css">
+	<script type="text/javascript" src="../../resources/jquery.min.js"></script>
+	<script type="text/javascript" src="../../resources/jquery.easyui.min.js"></script>
+</head>
+<body>
+	<h2>基础数据表格</h2>
+	<table id="dg1" class="easyui-datagrid" title="列在html表头里绑定" style="width:700px;height:250px"
+			>
+		<thead>
+			<tr>
+				<th data-options="field:'UserName',width:80">用户名</th>
+				<th data-options="field:'RealName',width:80">真实名称</th>
+				<th data-options="field:'Major',width:80,align:'right'">专业</th>
+				<th data-options="field:'Grade',width:80,align:'right'">年级</th>
+				<th data-options="field:'ClassNo',width:80,align:'right'">班级</th>				
+			</tr>
+		</thead>
+	</table>
+	<script type="text/javascript">
+		$("#dg1").datagrid({
+			singleSelect:true,
+			collapsible:true,
+			fitColumns: true,
+			url:'test.json',
+			method:'get'
+		});
+	</script>
+	<br/><br/>
+	<table id="dg2" class="easyui-datagrid" title="列在js里绑定" style="width:700px;height:250px">		
+	</table>
+	<script type="text/javascript">
+
+	 $('#dg2').datagrid({
+        url: "test.json",
+        fitColumns: true,
+        collapsible:true,
+        singleSelect: true,
+        striped: true,       
+        columns: [
+            [{
+                field: "UserName",
+                title: "姓名",
+                align: 'center',                
+                width: 80
+            }, {
+                field: "RealName",
+                title: "真实姓名",
+                align: 'center',               
+                width: 80
+            }, {
+                field: "Grade",
+                title: "年级",
+                align: 'center',               
+                width: 80
+            }, {
+                field: "Major",
+                title: "专业",
+                halign: 'center',
+                align: 'right',
+                width: 80
+            }, {
+                field: "ClassNo",
+                title: "班级",
+                halign: 'center',
+                align: 'right',
+                width: 80
+            }]
+        ]
+       
+    });
+
+		
+	</script>
+
+</body>
+</html>

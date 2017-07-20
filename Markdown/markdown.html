@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">  
+
+    <title>Markdown教程</title>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+     <link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
+    
+  </head>
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">我的教程</a>
+        </div>
+        
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+         <ul class="nav nav-sidebar">
+          <li >
+            <a href="../index.html">首页</a>
+          </li>
+          <li class="active">
+            <a href="#">Markdown教程</a>
+          </li>        
+           <li>
+            <a href="../EasyUI/index.html" target="_blank">EasyUI教程</a>
+          </li>
+           <li>
+            <a href="../Bootstrap/index.html" target="_blank">Bootstrap教程</a>
+          </li>
+          <li>
+            <a href="">NodeJS教程(ing...)</a>
+          </li>
+          <li>
+            <a href="">AngularJS教程(ing...)</a>
+          </li>
+          <li>
+            <a href="">ReactJS教程(ing...)</a>
+          </li>
+         
+        </ul>
+
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">    
+
+         <xmp theme="united" style="display:none;">  
+# Markdown教程
+***************
+## 什么是Markdown
+一种轻量级的标记语言，使用简单的几个标记符号，让文本显示不同的样式。
+***
+## 标题
+标题是最常用的一种显示格式,在行首插入1-6个`#`符号表示各级别的标题，如：
+
+`### 三级标题`
+
+`#### 四级标题`
+
+`##### 五级标题`
+
+### 三级标题
+
+#### 四级标题
+
+##### 五级标题
+***
+## 列表
+在 Markdown 下，列表的显示只需要在文字前加上 `-` 或 `*` 即可变为无序列表，有序列表则直接在文字前加 `1.` `2.` `3.` ，符号要和文字之间加上一个字符的空格。
+
+### 无序列表
+
+`* 1`
+
+`* 2`
+
+`* 3`
+
+* 1
+* 2
+* 3
+
+
+### 有序列表
+`1. 1`
+
+`2. 2`
+
+`3. 3`
+
+1. 1
+2. 2
+3. 3
+
+***
+## 引用
+
+引用其他文章时，使用`>`标记
+
+`> 床前明月光`
+
+`> 疑是地上霜`
+
+> 床前明月光
+
+> 疑是地上霜
+
+嵌套引用
+
+> This is the first level of quoting.
+>
+> > This is nested blockquote.
+>
+> Back to the first level.
+
+***
+## 代码
+
+#### 行内代码
+用两个 ` ` ` 把中间的代码包裹起来
+
+<code>\`code\`</code>
+
+`code`
+
+#### 代码区块
+
+* 缩进：要在 Markdown 中建立代码区块很简单，只要简单地缩进 4 个空格或是 1 个制表符就可以
+
+```
+这是一个普通段落：
+
+    这是一个代码区块。
+```
+
+这是一个普通段落：
+
+    这是一个代码区块。
+
+* <code>```</code>
+ 
+```
+var str="这是一个字符串";
+```
+````
+```
+var str="这是一个字符串";
+```
+````
+
+***
+## 分割线
+使用`***`
+***
+## 链接
+`
+This is [an example](http://example.com/ "Title") inline link.
+`
+
+This is [an example](http://example.com/ "Title") inline link.
+
+***
+## 图片
+`
+![Image](images/1.gif)
+`
+
+![Image](images/1.gif)
+
+***
+## 强调
+星号`*`和底线`_`作为标记强调字词的符号
+```
+*single asterisks*
+
+_single underscores_
+
+**double asterisks**
+
+__double underscores__
+```
+*single asterisks*
+
+_single underscores_
+
+**double asterisks**
+
+__double underscores__
+
+***
+## 表格
+```
+| Tables        | Are           | Cool  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
+```
+| Tables        | Are           | Cool  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
+</xmp>
+  <div id="preview"></div>
+  </div>
+  </div>
+  </div>
+
+  <script src="js/jquery-3.1.1.min.js"></script>
+  <script src="bootstrap/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/strapdown/strapdown.js"></script>
+  </body>
+  </html>

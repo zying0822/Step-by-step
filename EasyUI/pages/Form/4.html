@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>数字框</title>
+	<link rel="stylesheet" type="text/css" href="../../resources/themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../../resources/themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../../resources/themes/color.css">
+	<link rel="stylesheet" type="text/css" href="../../resources/css/reset.css">
+	<script type="text/javascript" src="../../resources/jquery.min.js"></script>
+	<script type="text/javascript" src="../../resources/jquery.easyui.min.js"></script>
+</head>
+<body>
+    <h2>数字框</h2>
+    <a href="#" class="easyui-linkbutton" onclick="getText()">获取数字框内容</a>
+    <a href="#" class="easyui-linkbutton" onclick="setText()">设置数字框内容</a>
+    <a href="#" class="easyui-linkbutton" onclick="clearText()">清除文本框内容</a>
+    <br/><br/>
+    <div class="easyui-panel" title="基础数字框" style="width:400px;padding:30px 60px">
+		<div style="margin-bottom:20px">
+			<label style="display:inline-block;width: 100px;">小数:</label>
+			<input class="easyui-numberbox" id="numberbox1" precision="2" value="234.56">
+		</div>
+		<div style="margin-bottom:20px">
+			<label style="display:inline-block;width: 100px;">整数:</label>
+			<input class="easyui-numberbox"  value="100">
+		</div>	
+		
+	</div>
+
+	<br/>
+	   <div class="easyui-panel" title="基础数字框" style="width:400px;padding:30px 60px">
+		<div style="margin-bottom:20px">
+			<label style="display:inline-block;width: 100px;">最小值:10;最大值:90;精度:两位:</label>
+			<input class="easyui-numberbox" data-options="min:10,max:90,precision:2,required:true">
+		</div>
+		<div style="margin-bottom:20px">
+			<label style="display:inline-block;width: 100px;">最小值:10;最大值:90:</label>
+			<input class="easyui-numberbox" data-options="min:10,max:90,required:true">
+		</div>	
+		
+	</div>
+
+	<br/>
+	<div class="easyui-panel" title="数字框格式" style="width:400px;padding:30px 60px">
+		<div style="margin-bottom:20px">
+			<label style="display:inline-block;width: 100px;">普通表示方法:</label>
+			<input class="easyui-numberbox" value="1234567.89" data-options="precision:2"/>
+		</div>
+		<div style="margin-bottom:20px">
+			<label style="display:inline-block;width: 100px;">美式数字记法:</label>
+			<input class="easyui-numberbox" value="1234567.89" data-options="precision:2,groupSeparator:','"/>
+		</div>
+		
+		<div style="margin-bottom:20px">
+			<label style="display:inline-block;width: 100px;">美元货币记法:</label>
+			<input class="easyui-numberbox" value="1234567.89" data-options="precision:2,groupSeparator:',',decimalSeparator:'.',prefix:'$'">
+		</div>
+		<div style="margin-bottom:20px">
+			<label style="display:inline-block;width: 100px;">欧元符号:</label>
+			<input class="easyui-numberbox" value="1234567.89" data-options="precision:2,groupSeparator:',',decimalSeparator:' ',prefix:'€'">
+		</div>
+		<div style="margin-bottom:20px">
+			<label style="display:inline-block;width: 100px;">欧元符号:</label>
+			<input class="easyui-numberbox" value="1234567.89" data-options="precision:2,groupSeparator:' ',decimalSeparator:',',suffix:'€'">
+		</div>
+		<script type="text/javascript">
+		function getText(){
+			var text=$("#numberbox1").numberbox("getValue");
+			alert(text);
+		}
+		function setText(){
+			$("#numberbox1").numberbox("setValue","1234.56");
+			
+		}
+		function clearText(){
+			$("#numberbox1").textbox("clear");
+			
+		}
+	</script>
+		
+		
+
+	 
+	</div>
+</body>
+</html>

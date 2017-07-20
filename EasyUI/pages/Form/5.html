@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>数字调整器</title>
+	<link rel="stylesheet" type="text/css" href="../../resources/themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../../resources/themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../../resources/themes/color.css">
+	<link rel="stylesheet" type="text/css" href="../../resources/css/reset.css">
+	<script type="text/javascript" src="../../resources/jquery.min.js"></script>
+	<script type="text/javascript" src="../../resources/jquery.easyui.min.js"></script>
+</head>
+<body>
+    <h2>数字调整器</h2>
+    <a href="#" class="easyui-linkbutton" onclick="getText()">获取数字框内容</a>
+    <a href="#" class="easyui-linkbutton" onclick="setText()">设置数字框内容</a>
+    <a href="#" class="easyui-linkbutton" onclick="clearText()">清除文本框内容</a>
+    <br/><br/>
+    <p>数字调整器</p>
+	<input class="easyui-numberspinner" id="numberspinner1" value="1000" data-options="increment:100" style="width:120px;">
+
+	<br/><br/><br/>
+	<p>数字范围</p>
+	<input class="easyui-numberspinner" data-options="min:10,max:100" style="width:120px;">
+		
+	<script type="text/javascript">
+		function getText(){
+			var text=$("#numberspinner1").numberspinner("getValue");
+			alert(text);
+		}
+		function setText(){
+			$("#numberspinner1").numberspinner("setValue","1234.56");
+			
+		}
+		function clearText(){
+			$("#numberspinner1").numberspinner("clear");
+			
+		}
+	</script>	
+
+	 
+	
+</body>
+</html>

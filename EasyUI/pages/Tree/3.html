@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>获取选中节点</title>
+	<link rel="stylesheet" type="text/css" href="../../resources/themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../../resources/themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../../resources/themes/color.css">
+	<link rel="stylesheet" type="text/css" href="../../resources/css/reset.css">
+	<script type="text/javascript" src="../../resources/jquery.min.js"></script>
+	<script type="text/javascript" src="../../resources/jquery.easyui.min.js"></script>
+</head>
+<body>
+	<h2>获取选中节点</h2>
+	<a href="#" class="easyui-linkbutton" onclick="getSelected()">获取选中节点</a>
+	<div class="easyui-panel" style="padding:5px">
+		<ul id="tt1" class="easyui-tree"></ul>
+			
+	</div>
+	<script type="text/javascript">
+		$('#tt1').tree({    
+    		url:'tree_data1.json'   ,
+    		animate:true,
+    		lines:true,
+    		onDblClick:function(node){
+    			// var node = $('#tt').tree('getSelected');
+			    if (node){
+				var s = node.text;
+				if (node.attributes){
+					s += ","+node.attributes.p1+","+node.attributes.p2;
+				}
+				alert(s);
+			}
+    		}
+		}); 
+
+		function getSelected(){
+			var node = $('#tt1').tree('getSelected');
+			if (node){
+				var s = node.text;
+				if (node.attributes){
+					s += ","+node.attributes.p1+","+node.attributes.p2;
+				}
+				alert(s);
+			}
+		}
+
+		
+	</script>
+
+	
+	
+</body>
+</html>

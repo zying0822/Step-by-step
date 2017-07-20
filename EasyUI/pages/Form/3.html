@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>下拉框</title>
+	<link rel="stylesheet" type="text/css" href="../../resources/themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../../resources/themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../../resources/themes/color.css">
+	<link rel="stylesheet" type="text/css" href="../../resources/css/reset.css">
+	<script type="text/javascript" src="../../resources/jquery.min.js"></script>
+	<script type="text/javascript" src="../../resources/jquery.easyui.min.js"></script>
+</head>
+<body>
+    <h2>下拉框</h2>
+    <p>静态数据</p>
+	<select class="easyui-combobox" name="state" style="width:200px;">
+		<option value="AL">北京</option>	
+		<option value="OK">河北</option>
+		<option value="OR">河南</option>
+		<option value="PA">山东</option>
+		<option value="RI">黑龙江</option>
+		<option value="SC">吉林</option>
+		<option value="SD">辽宁</option>
+		<option value="TN">天津</option>
+		<option value="TX">上海</option>
+		<option value="UT">江苏</option>
+		<option value="VT">内蒙</option>
+		<option value="VA">浙江</option>
+		<option value="WA">安徽</option>
+		<option value="WV">湖南</option>
+		
+	</select>
+	<br/>
+	<br/>
+	<br/>
+	 <p>ajax加载数据</p>
+	<select class="easyui-combobox" id="cf" value="6" name="coalfield" style="width:200px;">
+		
+	</select>
+	<script type="text/javascript">
+		 $('#cf').combobox({
+		 	url:'cfcombox.json',    
+    		valueField:'ID',    
+    		textField:'coalFieldName' ,
+    		loadFilter:function (data) {
+    			if (data.results){    
+            	return data.results;    
+        		} else {    
+            		return data;    
+        		}   
+    		}  
+		 });
+	</script>
+	 <p>下拉框操作</p>
+	 <div style="margin:20px 0;">
+		<a href="javascript:void(0)" class="easyui-linkbutton" onclick="setvalue()">SetValue</a>
+		<a href="javascript:void(0)" class="easyui-linkbutton" onclick="alert($('#cf2').combobox('getValue'))">GetValue</a>
+		<a href="javascript:void(0)" class="easyui-linkbutton" onclick="$('#cf2').combobox('disable')">Disable</a>
+		<a href="javascript:void(0)" class="easyui-linkbutton" onclick="$('#cf2').combobox('enable')">Enable</a>
+	</div>
+	<script type="text/javascript">
+		function setvalue(){
+			$.messager.prompt('SetValue','请输入煤种:',function(v){
+				if (v){
+					$('#cf2').combobox('setValue',v);
+				}
+			});
+		}
+	</script>
+	<select class="easyui-combobox" id="cf2" value="6" name="coalfield" style="width:200px;">
+		
+	</select>
+	<script type="text/javascript">
+		 $('#cf2').combobox({
+		 	url:'cfcombox.json',    
+    		valueField:'ID',    
+    		textField:'coalFieldName' ,
+    		loadFilter:function (data) {
+    			if (data.results){    
+            	return data.results;    
+        		} else {    
+            		return data;    
+        		}   
+    		}  
+		 });
+	</script>
+</body>
+</html>

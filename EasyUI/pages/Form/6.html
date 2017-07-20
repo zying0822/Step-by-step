@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>日历</title>
+	<link rel="stylesheet" type="text/css" href="../../resources/themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../../resources/themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../../resources/themes/color.css">
+	<link rel="stylesheet" type="text/css" href="../../resources/css/reset.css">
+	<script type="text/javascript" src="../../resources/jquery.min.js"></script>
+	<script type="text/javascript" src="../../resources/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="../../resources/easyui-lang-zh_CN.js"></script>
+</head>
+<body>
+    <h2>日历</h2> 
+    <p>基本日历</p>
+	<div class="easyui-calendar" style="width:250px;height:250px;"></div>
+
+	<br/><br/><br/>
+	<p>自定义日历</p>
+	<div class="easyui-calendar" style="width:250px;height:250px;" data-options="formatter:formatDay"></div>
+			
+	<script>
+		var d1 = Math.floor((Math.random()*30)+1);
+		var d2 = Math.floor((Math.random()*30)+1);
+		function formatDay(date){
+			var m = date.getMonth()+1;
+			var d = date.getDate();
+			var opts = $(this).calendar('options');
+			if (opts.month == m && d == d1){
+				return '<div class="icon-ok md">' + d + '</div>';
+			} else if (opts.month == m && d == d2){
+				return '<div class="icon-search md">' + d + '</div>';
+			}
+			return d;
+		}
+	</script>
+	<style scoped="scoped">
+		.md{
+			height:16px;
+			line-height:16px;
+			background-position:2px center;
+			text-align:right;
+			font-weight:bold;
+			padding:0 2px;
+			color:red;
+		}
+	</style>
+
+<br/><br/><br/>
+	<p>禁用日历</p>
+	<div class="easyui-calendar" style="width:250px;height:250px;" data-options="
+			validator: function(date){
+				if (date.getDay() == 1){
+					return true;
+				} else {
+					return false;
+				}
+			}
+			"></div>
+
+	 
+	
+</body>
+</html>

@@ -1,0 +1,22 @@
+{
+    "totalCount": 6,
+    "results": [{
+        "coalFieldName": "煤场A",
+        "ID": 60
+    }, {
+        "coalFieldName": "煤场B",
+        "ID": 61
+    }, {
+        "coalFieldName": "煤场C",
+        "ID": 62
+    }, {
+        "coalFieldName": "煤场D",
+        "ID": 63
+    }, {
+        "coalFieldName": "煤场E",
+        "ID": 64
+    }, {
+        "coalFieldName": "煤场F",
+        "ID": 65
+    }]
+}
