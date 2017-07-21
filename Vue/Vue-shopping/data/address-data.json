@@ -1,0 +1,40 @@
+{
+	"status": 0,
+	"result": [
+		{
+			"addressId":"100001",
+			"userName":"张颖",
+			"address":"河北省保定市北市区华电二校",
+			"postCode":"100001",
+			"tel":"15111111111",
+			"isDefault":true
+		},
+		{
+			"addressId":"100002",
+			"userName":"张颖小号",
+			"address":"河北省保定市北市区华电二校",
+			"postCode":"100001",
+			"tel":"15122222222",
+			"isDefault":false
+		},
+		{
+			"addressId":"100003",
+			"userName":"张颖同学",
+			"address":"河北省保定市北市区华电二校",
+			"postCode":"100001",
+			"tel":"15133333333",
+			"isDefault":false
+		},
+		{
+			"addressId":"100004",
+			"userName":"张颖老师",
+			"address":"河北省保定市北市区华电二校",
+			"postCode":"100001",
+			"tel":"15144444444",
+			"isDefault":false
+		}
+
+
+	],
+	"message": ""
+}

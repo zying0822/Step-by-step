@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>选择地址页面</title>
+	<link href="css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <link href="css/icons.css" type="text/css" rel="stylesheet">
+    <link href="css/style.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="js/vue.js"></script>
+    <script type="text/javascript" src="js/axios.min.js"></script>
+    <script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+	
+	
+</head>
+<body>
+<div id="app">
+<div class="check-step ">
+	<ul class="clearfix">
+		<li class="cur"><span class="text-center">地址确认</span><i class="fa-circle text-center"></i></li>
+		<li><span class="text-center">查看订单</span><i class="fa-circle text-center"></i></li>
+		<li><span class="text-center">支付</span><i class="fa-circle text-center"></i></li>
+		<li><span class="text-center">完成</span><i class="fa-circle text-center"></i></li>
+	</ul>
+</div>
+<div class="title"><span>配送地址</span></div>
+<div class="addr-list">
+	<ul class="clearfix">
+		<li v-for="(item,index) in filterAddress" v-bind:class="{'checked-card':index==cureentIndex}" v-on:click="cureentIndex=index">
+			<dl>
+				<dt>{{item.userName}}</dt>
+				<dd class="address">{{item.address}}</dd>
+				<dd class="tel">{{item.tel}}</dd>
+			</dl>
+			<span class="default-address" v-if="item.isDefault">默认地址</span>
+			<a class="default-address" href="javascript:;" v-if="!item.isDefault" v-on:click="setDefault(item.addressId)">设为默认地址</a>
+			
+			<a class="edit-address" href="javascript:;"><i class="fa-edit"></i></a>
+				<a class="del-address" href="javascript:;"><i class="fa-trash"></i></a>
+		</li>
+		<li>			
+			<div class="add-address center-block">
+				<a href="javascript:;"><i class="fa-plus"></i>添加新地址</a>		
+			</div>
+		</li>		
+	</ul>
+	<div class="text-center more"><a href="javascript:;" @click="limitNum=addressList.length">more<i class="fa-angle-down"></i></a></div>
+</div>
+<div class="title"><span>配送方式</span></div>
+<div class="distribution-list">
+<ul>
+	<li v-bind:class="{'checked-card':shippingMethods==1}" v-on:click="shippingMethods=1">标准配送</li>
+	<li v-bind:class="{'checked-card':shippingMethods==2}" v-on:click="shippingMethods=2">高级配送</li>
+</ul>
+</div>
+</div>
+
+<script type="text/javascript" src="address.js"></script>
+
+</body>
+</html>

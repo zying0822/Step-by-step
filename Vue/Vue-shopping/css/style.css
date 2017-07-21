@@ -1,0 +1,203 @@
+/*  common   */
+a {
+    text-decoration: none;
+}
+.title {
+    background: url(../img/cutline.png) repeat-x center;
+    margin:20px 0;
+}
+.title span{
+	display: block;
+	text-align: center;
+	width: 150px;
+	background: #fff;
+	margin:0 auto;
+	font-size:16px;
+	font-weight: bold;
+}
+
+/*  cart   */
+.thead{
+	height:40px;
+	line-height: 40px;
+	background: #616161;
+	color:#fff;
+}
+.tr{
+	border-bottom: 1px solid #f6f6f6;
+}
+.cart-table tbody td{
+	padding:20px 10px;
+}
+.checkbox{	
+	float: left;
+}
+.product-image{
+	float: left;
+}
+.product-detail{
+	float: left;
+	margin-left: 10px;
+}
+
+.gift-info{
+	margin-top: 20px;
+	font-size: 14px;
+}
+.gift-info p{
+	float: left;
+
+}
+.gift-info ul{	
+	margin-left: 10px;
+	color:#999;	
+	list-style: none;
+}
+.gift-info ul li{
+	margin-bottom: 10px;
+}
+.product-price,.total-product-price,.delete-icon{
+	margin-top: 20px;
+}
+.change-box{
+	margin-top: 20px;
+	width: 69px;
+}
+.change-box a{
+	font-size: 10px;
+}
+.quantity-box{
+	width: 3em;
+}
+.quantityLabel{
+	display: block;
+	width: 40px;
+	margin-top: 3px;
+
+}
+.delete-icon a{
+	font-size: 18px;
+}
+.checkout{
+	margin-right: 30px;
+}
+.checkout a{
+	width: 120px;
+	margin-left: 20px;
+}
+.price{
+	color: #d1434b;
+}
+/*  address   */
+.check-step {
+	margin-top: 20px;
+}
+.check-step ul{
+	list-style: none;
+	padding:0;
+}
+.check-step ul li{
+	width: 25%;
+	float: left;
+	color:#cecece;
+	border-bottom: 2px solid #cecece;
+}
+.check-step span{
+	display: block;
+	margin-bottom: 5px;
+}
+.check-step i{
+	display: block;
+	margin-bottom: -7px;
+}
+
+.check-step ul li.cur{
+	color:#ef7a26;
+	border-bottom: 2px solid #ef7a26;
+}
+.addr-list  ul{
+	list-style: none;
+	padding: 0;
+}
+.addr-list li{
+	width: 23%;
+	float: left;
+	margin:10px;
+	border: 2px solid #efefef;
+	height:135px;
+	position: relative;
+
+}
+.addr-list li:hover{
+	cursor: pointer;
+}
+.addr-list li.checked-card {
+    border: 2px solid #ef7a26;
+}
+.addr-list li dl{
+	margin:5px;
+}
+.addr-list dt{
+	font-size: 16px;
+}
+.addr-list dt,.addr-list dd{
+	margin-bottom: 5px;
+}
+.addr-list dd.address{
+	height: 2.5em;
+}
+.default-address{
+	color:#ef7a26;
+	font-size: 12px;
+	margin-left: 5px;
+}
+.edit-address,.del-address{
+	position: absolute;
+}
+.edit-address,.del-address{
+	right: 10px;
+}
+.edit-address{
+	top: 10px;
+}
+.add-address{
+	text-align: center;
+	margin-top: 30px;
+}
+.add-address a{
+	color:#5b5b5b;
+	text-decoration: none;
+}
+.add-address a:hover{
+	text-decoration: none;
+	color:#ef7a26;
+}
+.add-address i{
+	display: block;
+	font-size: 30px;
+}
+.more a{
+	color:#ef7a26;
+}
+
+.distribution-list ul{
+	list-style: none;
+	padding: 0;
+	width: 448px;
+	margin:10px auto;
+}
+.distribution-list li{	
+	float: left;
+	width: 200px;
+	height:60px;
+	line-height: 60px;
+	margin:10px;
+	border: 2px solid #efefef;
+	text-align: center;
+}
+.distribution-list li:hover{
+	cursor: pointer;
+}
+.distribution-list li.checked-card {
+    border: 2px solid #ef7a26;
+}
